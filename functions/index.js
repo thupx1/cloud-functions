@@ -9,12 +9,16 @@ exports.createCity = functions.https.onRequest(async (req, res) => {
   console.log("cities", result.id)
   res.json(await result.get())
 });
+
+exports.handleCreate = functions.firestore
+  .document(`cities/{cityId}`)
+  .onCreate(async (snapshot, ctx) => {
     try {
-        console.log(data)
+      const original = snapshot.data()
+      functions.logger.log('Creating', original)
 
     } catch (error) {
-        console.error(error);
-        // res.json(error)
+      console.error(error)
+      return;
     }
-})
-exports.createCity = createCity
+  });
