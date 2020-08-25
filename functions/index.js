@@ -1,5 +1,14 @@
 const functions = require('firebase-functions');
-const createCity = functions.https.onCall((data, ctx) => {
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+
+exports.createCity = functions.https.onRequest(async (req, res) => {
+  const cityRef = admin.firestore().collection(`cities`)
+  const result = await cityRef.add({ data: req.body })
+  console.log("cities", result.id)
+  res.json(await result.get())
+});
     try {
         console.log(data)
 
