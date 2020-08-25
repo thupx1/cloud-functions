@@ -22,3 +22,14 @@ exports.handleCreate = functions.firestore
       return;
     }
   });
+exports.handleUpdate = functions.firestore
+  .document('cities/{cityId}')
+  .onUpdate((change, ctx) => {
+    console.log('updating');
+  })
+
+exports.handleDelete = functions.firestore
+  .document('cities/{cityId}')
+  .onDelete((snap, ctx) => {
+    console.log('deleting');
+  })
