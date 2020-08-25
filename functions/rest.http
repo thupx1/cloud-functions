@@ -1,0 +1,6 @@
+POST http://localhost:5000/cloudfirestore-21fa9/us-central1/createCity
+Content-Type: application/json
+
+{
+    "name": "testcity"
+}
