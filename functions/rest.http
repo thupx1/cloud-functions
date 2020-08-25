@@ -1,6 +1,11 @@
-POST http://localhost:5000/cloudfirestore-21fa9/us-central1/createCity
+POST http://localhost:5001/cloudfirestore-21fa9/us-central1/createCity
 Content-Type: application/json
 
 {
-    "name": "testcity"
+    "name": "BD",
+    "capital": false
 }
+
+# GET  http://localhost:5001/cloudfirestore-21fa9/us-central1/createCity?city=HAM
+
+# GET http://localhost:5001/cloudfirestore-21fa9/us-central1/addMessage?text=hello
